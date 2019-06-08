@@ -8,7 +8,7 @@ var tela=1
 var xin2=[]
 var yin2=[]
 var qtdObjetosn2=10
-var vidas=1
+var vidas=4
 var pontos=0
 var nivel=1
 var vxi=[]
@@ -22,7 +22,7 @@ var xd
 var yd
 var bpontos=9
 var estadoDisparo = false;
-var raioD=3
+var raioD=5
 function setup() {
   createCanvas(500, 400);
   for(i=0;i<=qtdObjetos;i++){
@@ -41,7 +41,7 @@ function setup() {
   textSize(13)
   text('No nivel 1 o objetivo do jogo é eliminar todos os alvos antes que eles cheguem\n do outro lado da tela. ',10,100);
   text('No nivel 2 o objetivo é apenas chegar ao outro lado.',10,150)
-   text('No nivel 3 voce tem que deixar a vida do inimigo em zero,mas se o tempo chegar \n em 50 segundos voce perde.',10,190) 
+   text('No nivel 3 voce tem que deixar a vida do inimigo em zero,mas se o tempo chegar \n em 40 segundos voce perde,além disso quanto mais no centro voce acertalo mais \n pontos de vida ele ira perder.',10,190) 
   text('Aperte ENTER para ir ao inicio do jogo.',10,330)
    text('Voce pode atirar usando CTRL e se movimentar usando as setas do teclado.\n boa sorte.',10,250)
   if ( keyIsDown(ENTER) ){
@@ -238,7 +238,7 @@ if( estadoDisparo ) {
     nivel=2;
     bpontos==bpontos+10 ;
    raioO=0
-   vidas=4
+   
    
    for(i=1;i<qtdObjetosn2;i++){
      ellipse(xin2[i],yin2[i],20,20)}
@@ -382,27 +382,31 @@ if( estadoDisparo ) {
   ellipse(xd,yd,1*raioD,1*raioD)
   xd=xd+10;
 }
-  if(xd > 400)
+  if(xd > 500)
   {
     estadoDisparo=false
   }
   
-ellipse(xif,yif,3*raioIF,5*raioIF)
+ellipse(xif,yif,1*raioIF,3*raioIF)
 if(xd>20){
   yif=yif+5}
   if(yif>400){
     yif=0}
    if(dist(xd,yd,xif,yif)< raioD + raioIF){
-     vidasif=vidasif -1}
+     vidasif=vidasif -1;}
   if(vidasif<=0){
     tela=5
 }
-  if(tempo>5000){
+  if(tempo>4000){
     tela=3}
 }
   if(tela==5){
     background(255, 221, 0);
     textSize(30);
-    text("PARABENS,VOCE GANHOU!!!!")}
+    text("PARABENS,VOCE GANHOU!!!!",10,200)
+    textSize(10)
+  }
 }
+
+
 
